@@ -1,0 +1,257 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f8fafc;
+    font-family: Inter, Arial, sans-serif;
+    color: #1e293b;
+}
+
+.grid-container {
+    padding: 25px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.page-description {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 24px;
+}
+
+/* MAIN GRID */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    border: 1px solid #e2e8f0;
+}
+
+.approval-grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .approval-grid > tbody > tr > td {
+        padding: 0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .approval-grid > tbody > tr:last-child > td {
+        border-bottom: none;
+    }
+
+/* TRANSACTION CARD */
+
+.transaction-card {
+    padding: 18px;
+    transition: background .2s;
+}
+
+    .transaction-card:hover {
+        background: #fafcff;
+    }
+
+.transaction-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.transaction-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.transaction-tag {
+    font-weight: 700;
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.asset-count {
+    padding: 5px 9px;
+    background: #e0e7ff;
+    color: #3730a3;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* TRANSFER SOURCE BADGES */
+
+.transfer-source {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.transfer-company {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.transfer-supplier {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* TRANSACTION INFORMATION */
+
+.transaction-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin: 15px 0 0 44px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+    .transaction-meta strong {
+        color: #334155;
+        font-weight: 600;
+    }
+
+/* BUTTONS */
+
+.btn {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all .2s;
+}
+
+    .btn:hover:not(:disabled) {
+        filter: brightness(.92);
+    }
+
+.btn-toggle {
+    width: 32px;
+    height: 32px;
+    background: #2563eb;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.btn-approve {
+    background: #16a34a;
+}
+
+.btn-reject {
+    background: #dc2626;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ASSET DETAILS */
+
+.asset-details {
+    display: none;
+    margin-top: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow-x: auto;
+    background: #f8fafc;
+}
+
+.child-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+    .child-table th {
+        background: #e2e8f0;
+        color: #334155;
+        padding: 12px;
+        text-align: left;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+
+    .child-table td {
+        padding: 12px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .child-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .child-table tbody tr:hover {
+        background: #eff6ff;
+    }
+
+.asset-id {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.empty-row {
+    padding: 30px !important;
+    text-align: center;
+    color: #64748b;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .grid-container {
+        padding: 12px;
+    }
+
+    .transaction-header {
+        align-items: flex-start;
+    }
+
+    .transaction-title {
+        width: 100%;
+    }
+
+    .transaction-meta {
+        margin-left: 0;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .transaction-card {
+        padding: 14px;
+    }
+}

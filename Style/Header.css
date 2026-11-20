@@ -1,0 +1,224 @@
+﻿
+/* ==========================================
+   PAGE HEADER AND HOME BUTTON
+========================================== */
+
+.transfer-page-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.transfer-page-heading {
+    flex: 1;
+    min-width: 0;
+}
+
+    .transfer-page-heading .page-title {
+        margin: 0 0 8px;
+    }
+
+    .transfer-page-heading .description {
+        margin: 0;
+    }
+
+.transfer-home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    background: linear-gradient( 135deg, #2563eb, #1d4ed8 );
+    border: 1px solid #1d4ed8;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, .20);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+    .transfer-home-btn:hover {
+        color: #ffffff;
+        background: linear-gradient( 135deg, #1d4ed8, #1e40af );
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, .28);
+    }
+
+    .transfer-home-btn:focus-visible {
+        outline: 3px solid #93c5fd;
+        outline-offset: 3px;
+    }
+
+    .transfer-home-btn svg {
+        width: 23px;
+        height: 23px;
+        flex-shrink: 0;
+    }
+
+
+/* ==========================================
+   PREMIUM SEARCH RESULTS
+   ONE ITEM PER ROW
+========================================== */
+
+#assetSearchResults {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    max-height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px;
+    margin: 10px 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+    /* Hide when there are no search results */
+    #assetSearchResults:empty,
+    #assetSearchResults[hidden] {
+        display: none !important;
+    }
+
+    /* Individual search result card */
+    #assetSearchResults > *,
+    #assetSearchResults .search-result-item,
+    #assetSearchResults .asset-search-item,
+    #assetSearchResults .search-result {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        padding: 14px 18px;
+        margin: 0;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #2563eb;
+        border-radius: 11px;
+        color: #1e293b;
+        font-size: 13px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+        box-shadow: 0 2px 7px rgba(15, 23, 42, .04);
+        transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+    }
+
+        /* Hover effect */
+        #assetSearchResults > *:hover,
+        #assetSearchResults .search-result-item:hover,
+        #assetSearchResults .asset-search-item:hover,
+        #assetSearchResults .search-result:hover {
+            background: #eff6ff;
+            border-color: #93c5fd;
+            border-left-color: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 16px rgba(37, 99, 235, .10);
+        }
+
+    /* Make clickable search results obvious */
+    #assetSearchResults button,
+    #assetSearchResults a {
+        cursor: pointer;
+    }
+
+    #assetSearchResults > button,
+    #assetSearchResults > a {
+        display: block;
+        text-align: left;
+        font-family: inherit;
+        text-decoration: none;
+    }
+
+    /* Search result headings */
+    #assetSearchResults strong,
+    #assetSearchResults b {
+        color: #1d4ed8;
+        font-weight: 750;
+    }
+
+    /* Secondary information */
+    #assetSearchResults small {
+        color: #64748b;
+        font-size: 12px;
+    }
+
+    /* Custom scrollbar */
+    #assetSearchResults::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    #assetSearchResults::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 10px;
+    }
+
+    #assetSearchResults::-webkit-scrollbar-thumb {
+        background: #94a3b8;
+        border-radius: 10px;
+    }
+
+        #assetSearchResults::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+
+/* ==========================================
+   RESPONSIVE MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .transfer-page-header {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .transfer-home-btn {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        border-radius: 10px;
+    }
+
+        .transfer-home-btn svg {
+            width: 21px;
+            height: 21px;
+        }
+
+    #assetSearchResults {
+        padding: 6px;
+        max-height: 300px;
+        gap: 8px;
+    }
+
+        #assetSearchResults > *,
+        #assetSearchResults .search-result-item,
+        #assetSearchResults .asset-search-item,
+        #assetSearchResults .search-result {
+            padding: 12px 13px;
+            font-size: 12px;
+            border-radius: 9px;
+        }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .transfer-home-btn,
+    #assetSearchResults > *,
+    #assetSearchResults .search-result-item,
+    #assetSearchResults .asset-search-item,
+    #assetSearchResults .search-result {
+        transition: none;
+    }
+}

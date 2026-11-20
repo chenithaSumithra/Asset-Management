@@ -1,0 +1,901 @@
+﻿
+/* ==========================================
+   TYPE SELECTION
+   ========================================== */
+
+.type-card input[type="radio"] {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+.type-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    border-radius: 11px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.type-card.active .type-icon,
+.type-card:has(input:checked) .type-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.type-name {
+    display: block;
+    color: #172033;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.type-desc {
+    display: block;
+    max-width: 95%;
+    color: #64748b;
+    font-size: 11.5px;
+    line-height: 1.55;
+}
+
+/* ==========================================
+   FORM SECTIONS AND FIELDS
+   ========================================== */
+
+.type-section {
+    margin-bottom: 16px;
+}
+
+.checkout-form-panel {
+    margin-top: 18px;
+    padding: 21px;
+    border: 1px solid #e0e8f2;
+    border-radius: 15px;
+    background: #fbfcff;
+}
+
+.checkout-form-title {
+    margin: 0 0 19px;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -.2px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.form-field {
+    min-width: 0;
+    margin-bottom: 17px;
+}
+
+    .form-field:last-child {
+        margin-bottom: 0;
+    }
+
+.field-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.checkout-select,
+.checkout-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 11px 14px;
+    outline: none;
+    border: 1px solid #d7e1ee;
+    border-radius: 10px;
+    background: #fff;
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+select.checkout-select {
+    padding-right: 36px;
+    cursor: pointer;
+    color-scheme: light;
+}
+
+.checkout-select:hover,
+.checkout-input:hover {
+    border-color: #a8c1e7;
+}
+
+.checkout-select:focus,
+.checkout-input:focus {
+    background: #fff;
+    border-color: #2563eb;
+    box-shadow: var(--focus-ring);
+}
+
+.checkout-select:disabled,
+.checkout-input:disabled {
+    opacity: .7;
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.checkout-select option {
+    padding: 10px;
+    color: #0f172a;
+    background: #fff;
+}
+
+.checkout-note {
+    min-height: 104px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+input.checkout-input[type="date"] {
+    cursor: pointer;
+    min-width: 0;
+}
+
+    input.checkout-input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: .75;
+    }
+
+/* ==========================================
+   VALIDATION ERRORS
+   ========================================== */
+
+.validation-error {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+    .validation-error:not(:empty) {
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+        padding: 12px 14px;
+        margin-top: 13px;
+        border: 1px solid #fecaca;
+        border-left: 3px solid #dc2626;
+        border-radius: 10px;
+        background: #fff1f2;
+        color: #b91c1c;
+        font-weight: 600;
+        animation: feedbackIn .18s ease-out;
+    }
+
+        .validation-error:not(:empty)::before {
+            content: "!";
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #dc2626;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+/* ==========================================
+   MODAL FOOTER
+   ========================================== */
+
+.modal-footer {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 11px;
+    padding: 17px 28px;
+    background: #fff;
+    border-top: 1px solid #e5ebf3;
+    box-shadow: 0 -6px 18px rgba(15, 23, 42, .03);
+}
+
+.modal-cancel,
+.modal-continue {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px 24px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: all .18s ease;
+}
+
+.modal-cancel {
+    background: #f8fafc;
+    border-color: #dbe3ed;
+    color: #475569;
+}
+
+    .modal-cancel:hover {
+        background: #edf2f8;
+        color: #0f172a;
+    }
+
+.modal-continue {
+    min-width: 135px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-color: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, .17);
+}
+
+    .modal-continue:not(:disabled):hover {
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        box-shadow: 0 8px 21px rgba(37, 99, 235, .24);
+    }
+
+    .modal-continue:active {
+        transform: translateY(0);
+    }
+
+    .modal-continue:disabled {
+        opacity: .55;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+
+/* ==========================================
+   SWEETALERT2
+   ========================================== */
+
+.swal2-container {
+    z-index: 3000 !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.swal2-popup {
+    width: min(92vw, 430px) !important;
+    padding: 26px !important;
+    border: 1px solid #e5eaf2 !important;
+    border-radius: 19px !important;
+    box-shadow: 0 28px 75px rgba(15, 23, 42, .23) !important;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.swal2-title {
+    color: #0f172a !important;
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    letter-spacing: -.5px;
+}
+
+.swal2-html-container {
+    color: #64748b !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+}
+
+.swal2-actions {
+    gap: 10px !important;
+}
+
+.swal2-confirm,
+.swal2-cancel,
+.swal2-deny {
+    min-height: 42px;
+    padding: 10px 23px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    box-shadow: none !important;
+}
+
+.swal2-confirm {
+    background: #2563eb !important;
+}
+
+    .swal2-confirm:hover {
+        background: #1d4ed8 !important;
+    }
+
+.swal2-cancel {
+    background: #eef2f7 !important;
+    color: #334155 !important;
+}
+
+.swal2-input,
+.swal2-textarea,
+.swal2-select {
+    border: 1px solid #d7e1ee !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+}
+
+    .swal2-input:focus,
+    .swal2-textarea:focus {
+        border-color: #2563eb !important;
+        box-shadow: var(--focus-ring) !important;
+    }
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes transferOverlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes transferModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes feedbackIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLETS
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: min(100% - 24px, 1320px);
+        margin-top: 20px;
+    }
+
+        .container > .card {
+            padding: 19px;
+            border-radius: 16px;
+        }
+
+    .checkout-overlay {
+        padding: 14px;
+    }
+
+    .checkout-modal {
+        max-height: calc(100dvh - 28px);
+        border-radius: 18px;
+    }
+
+    .modal-header {
+        padding: 19px 21px;
+    }
+
+    .modal-body {
+        padding: 19px 21px;
+    }
+
+    .modal-footer {
+        padding: 14px 21px;
+    }
+
+    .checkout-form-panel {
+        padding: 17px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+   ========================================== */
+
+@media (max-width: 520px) {
+
+    .container {
+        width: min(100% - 18px, 1320px);
+        margin-bottom: 170px;
+    }
+
+        .container > .card {
+            padding: 16px;
+        }
+
+    .scan-row {
+        flex-direction: column;
+    }
+
+        .scan-row > .btn {
+            width: 100%;
+        }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .stat {
+        padding: 13px 16px;
+    }
+
+        .stat strong {
+            font-size: 23px;
+        }
+
+    .toolbar {
+        align-items: stretch;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+        .actions .btn {
+            flex: 1;
+        }
+
+    .batch-footer-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .batch-footer-actions .btn {
+        flex: 1;
+    }
+
+    .checkout-overlay {
+        padding: 0;
+    }
+
+    .checkout-modal {
+        width: 100%;
+        max-height: 100dvh;
+        min-height: 100dvh;
+        border-radius: 0;
+    }
+
+    .modal-header {
+        padding: 17px;
+    }
+
+    .modal-heading {
+        gap: 10px;
+    }
+
+    .modal-icon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        font-size: 20px;
+    }
+
+    .modal-heading h2 {
+        font-size: 17px;
+    }
+
+    .modal-heading p {
+        font-size: 11px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .type-grid {
+        gap: 9px;
+    }
+
+    .type-card {
+        padding: 13px 11px;
+    }
+
+    .type-desc {
+        font-size: 10.5px;
+    }
+
+    .checkout-form-panel {
+        padding: 14px;
+    }
+
+    .modal-footer {
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+
+    .modal-cancel,
+    .modal-continue {
+        flex: 1;
+        padding: 11px 12px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .checkout-overlay,
+    .checkout-modal,
+    .validation-error:not(:empty) {
+        animation: none !important;
+    }
+
+    .type-card,
+    .modal-close,
+    .modal-continue,
+    .modal-cancel {
+        transition: none !important;
+    }
+}
+
+/* ==========================================
+   PENDING SCANNED ASSETS - VERTICAL LIST
+   ========================================== */
+
+.pending-asset-list {
+    display: flex;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    min-height: 120px;
+    max-height: 350px;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+    /* Each scanned asset in a separate row */
+
+    .pending-asset-list .pending-chip {
+        display: flex !important;
+        flex-direction: row !important;
+        flex: 0 0 auto !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-width: 0;
+        min-height: 44px;
+        max-width: none;
+        padding: 10px 14px;
+        box-sizing: border-box;
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 9px;
+        color: #1e40af;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+        /* Barcode text */
+
+        .pending-asset-list .pending-chip span {
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    /* Individual remove button */
+
+    .pending-asset-list .pending-remove {
+        flex-shrink: 0;
+        margin-left: 12px;
+        background: transparent;
+        border: none;
+        color: #dc2626;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+        .pending-asset-list .pending-remove:hover {
+            color: #991b1b;
+        }
+
+    /* Pending list scrollbar */
+
+    .pending-asset-list::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    .pending-asset-list::-webkit-scrollbar-thumb {
+        background: #94a3b8;
+        border-radius: 10px;
+    }
+
+/* Pending display states */
+
+#pendingAssetList[hidden] {
+    display: none !important;
+}
+
+#pendingAssetList:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+/* ==========================================
+   STATUS COLUMN COLORS
+   ========================================== */
+
+#assetTableBody td.asset-status-cell {
+    vertical-align: middle;
+    transition: background-color .15s ease;
+}
+
+#assetTableBody .asset-status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Status 1 - green */
+
+#assetTableBody td.asset-status-cell.status-1 {
+    background-color: #f0fdf4;
+}
+
+#assetTableBody .asset-status-badge.status-1 {
+    background: #dcfce7 !important;
+    color: #166534 !important;
+}
+
+/* Status 2 - blue */
+
+#assetTableBody td.asset-status-cell.status-2 {
+    background-color: #eff6ff;
+}
+
+#assetTableBody .asset-status-badge.status-2 {
+    background: #dbeafe !important;
+    color: #1d4ed8 !important;
+}
+
+/* Status 3 - red */
+
+#assetTableBody td.asset-status-cell.status-3 {
+    background-color: #fef2f2;
+}
+
+#assetTableBody .asset-status-badge.status-3 {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+}
+
+/* Status 4 - orange */
+
+#assetTableBody td.asset-status-cell.status-4 {
+    background-color: #fff7ed;
+}
+
+#assetTableBody .asset-status-badge.status-4 {
+    background: #ffedd5 !important;
+    color: #c2410c !important;
+}
+
+/* Status 5 - purple */
+
+#assetTableBody td.asset-status-cell.status-5 {
+    background-color: #faf5ff;
+}
+
+#assetTableBody .asset-status-badge.status-5 {
+    background: #f3e8ff !important;
+    color: #7e22ce !important;
+}
+
+/* Preserve disabled Remove button for Status 5 */
+
+#assetTableBody .asset-remove-button:disabled {
+    background: #e2e8f0 !important;
+    border-color: #cbd5e1 !important;
+    color: #64748b !important;
+    cursor: not-allowed !important;
+    opacity: .65 !important;
+    box-shadow: none !important;
+    pointer-events: none;
+}
+
+/* ==========================================
+   TRANSFER VALIDATION MESSAGE
+   ========================================== */
+
+#transferPrecheckError {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto 10px;
+    padding: 10px 14px;
+    border: 1px solid #dc2626;
+    border-left: 4px solid #b91c1c;
+    border-radius: 9px;
+    background: #fff1f2;
+    color: #991b1b;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.4;
+}
+
+    #transferPrecheckError[hidden] {
+        display: none !important;
+    }
+
+/* Highlight blocked transfer rows */
+
+#assetTableBody tr.transfer-error-row > td {
+    background-color: #fff1f2 !important;
+    border-top: 2px solid #dc2626 !important;
+    border-bottom: 2px solid #dc2626 !important;
+}
+
+    #assetTableBody tr.transfer-error-row > td:first-child {
+        border-left: 2px solid #dc2626 !important;
+    }
+
+    #assetTableBody tr.transfer-error-row > td:last-child {
+        border-right: 2px solid #dc2626 !important;
+    }
+
+    #assetTableBody tr.transfer-error-row > td:nth-child(2) {
+        color: #b91c1c !important;
+        font-weight: 800;
+        box-shadow: inset 0 0 0 2px #dc2626;
+    }
+
+#assetTableBody tr.transfer-error-row .asset-status-badge {
+    font-weight: 800;
+}
+
+/* ==========================================
+   NEW: KEEP PENDING AREA OPEN BY DEFAULT
+   ========================================== */
+
+#pendingAssetList.pending-asset-list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    width: 100%;
+    min-height: 140px !important;
+    max-height: 350px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #f8fafc;
+    border: 1px solid #dbe5f1;
+    border-radius: 12px;
+    overflow-y: auto;
+}
+
+/* Empty state for first page load */
+
+#pendingAssetList .pending-empty-state {
+    display: flex;
+    flex: 1 0 108px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 9px;
+    color: #64748b;
+    background: #fff;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+/* ==========================================
+   NEW: TRANSFER BUTTON VISIBILITY
+   ========================================== */
+
+#transferButton[hidden],
+#updateConditionButton[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   NEW: UPDATE CONDITION BUTTON
+   ========================================== */
+
+.batch-footer-actions .condition-button {
+    background: #eef2ff;
+    color: #1e40af;
+    border: 1px solid #c7d2fe;
+}
+
+    .batch-footer-actions .condition-button:hover {
+        background: #dbeafe;
+        border-color: #93c5fd;
+    }
+
+/* ==========================================
+   NEW: UPDATE CONDITION MODAL
+   ========================================== */
+
+.condition-modal-box {
+    width: min(95vw, 520px);
+}
+
+.condition-notice {
+    margin-top: 12px;
+}
+
+
+/* ==========================================
+   HIDE PENDING SECTION WHEN NO ASSETS
+   ========================================== */
+
+#pendingStagingPanel[hidden] {
+    display: none !important;
+}
+
+#pendingAssetList.pending-asset-list[hidden] {
+    display: none !important;
+}
+
+#pendingAssetList.pending-asset-list:not([hidden]) {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.scanner-status.status-error,
+.scanner-status.status-error #scannerStatus {
+    color: #b42318 !important;
+    font-weight: 600;
+}
+
+    .scanner-status.status-error .scanner-dot {
+        background-color: #b42318 !important;
+        box-shadow: none;
+    }
